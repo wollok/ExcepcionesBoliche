@@ -1,0 +1,24 @@
+import example.*
+
+describe "tests de boliches" {
+	
+	var bolicheDeModa = new Boliche(cantidadGente = 999)
+
+test "prueba de entrar" {
+	bolicheDeModa.entrar(1)
+	assert.equals(0,bolicheDeModa.lugarDisponible())
+}
+
+test "prueba de boliche lleno" {
+	
+	assert.throwsExceptionWithMessage("no hay lugar",{bolicheDeModa.entrar(2)})
+
+}
+
+test "otra prueba de boliche lleno" {
+	
+	assert.throwsExceptionWithType(new ExceptionBolicheLleno(),{bolicheDeModa.entrar(2)})
+
+}
+
+}
